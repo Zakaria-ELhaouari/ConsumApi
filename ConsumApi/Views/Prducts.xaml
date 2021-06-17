@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ConsumApi.Views.Prducts">
+    <ContentPage.Content>
+        <StackLayout>
+            <StackLayout>
+                <Entry x:Name="nameEntry" Placeholder="Product name" Text=""  />
+                <Entry x:Name="priceEntry" Placeholder="product price" Text=""  />
+                <Entry x:Name="quantityEntry" Placeholder="product quantity" Text=""  />
+                <Button x:Name="SubmitBtn" Text="Add product" BackgroundColor="#56cfe1" TextColor="#fff" Clicked="AddUpdate" />
+            </StackLayout>
+            <CollectionView x:Name="collectionView">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <StackLayout Orientation="Horizontal">
+                            <StackLayout>
+                                <Label Text="{Binding Name}"  FontSize="Medium" TextColor="#264653" />
+                                <StackLayout Orientation="Horizontal">
+                                    <Label Text="Price:" FontSize="Small" TextColor="#2a9d8f" />
+                                    <Label Text="{Binding Price}" FontSize="Small" TextColor="#2a9d8f" />
+                                </StackLayout>
+                                <StackLayout Orientation="Horizontal">
+                                    <Label Text="Quantity:" FontSize="Small" TextColor="#2a9d8f" />
+                                    <Label Text="{Binding Quantity}" FontSize="Small" TextColor="#2a9d8f" />
+                                </StackLayout>
+                            </StackLayout>
+                            <StackLayout Orientation="Horizontal">
+                                <Button x:Name="Edite" BackgroundColor="Green" Text="Edite" Clicked="Edite_Clicked" CommandParameter="{Binding Id}"/>
+                                <Button x:Name="Delete" BackgroundColor="Red" Text="Delete"  Clicked="Delete_Clicked" CommandParameter="{Binding Id}"/>
+                            </StackLayout>
+                        </StackLayout>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
